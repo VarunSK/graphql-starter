@@ -1,0 +1,13 @@
+{
+  "name": "rest-vs-graphql-api-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Getting started with Grpahql Express and comparision with Traditional REST api",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-graphql": "^0.6.6",
+    "graphql": "^0.10.1"
+  }
+}
