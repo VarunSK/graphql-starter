@@ -1,27 +1,6 @@
 const graphql = require('graphql');
 const postDetails = require('./postdata')['postDetails']['data'];
-
-function mapper(id) {
-    let data = []
-    switch(id) {
-    case 1:
-        data.push(postDetails[0], postDetails[1]);
-        break;
-    case 2:
-        data.push(postDetails[2], postDetails[3]);
-        break;
-    case 3:
-        data.push(postDetails[4], postDetails[5]);
-        break;
-    case 4:
-        data.push(postDetails[6], postDetails[7]);
-        break;
-    case 5:
-        data.push(postDetails[8], postDetails[9]);
-        break;
-  }
-  return data;
-}
+const resolvers = require('./resolvers')
 
 const user = new graphql.GraphQLObjectType({
   name: 'User',
@@ -67,7 +46,7 @@ const user = new graphql.GraphQLObjectType({
         type: new graphql.GraphQLList(Posts),
         description: 'The age of the user',
         resolve(user) {
-          return mapper(user['id']);
+          return resolvers.mapper(user['id']);
         },
       }
     };

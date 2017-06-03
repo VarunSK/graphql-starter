@@ -3,6 +3,7 @@ const User = require('./User');
 const Post = require('./Posts');
 const userdata = require('./userdata')['userDetails']['data'];
 const postdata = require('./postdata')['postDetails']['data'];
+const resolvers = require('./resolvers');
 
 const Query = new graphql.GraphQLObjectType({
   name: 'Query',
@@ -39,6 +40,45 @@ const Query = new graphql.GraphQLObjectType({
   },
 });
 
+const Mutation = new graphql.GraphQLObjectType({
+  name: 'Mutation',
+  description: 'This is the root muatation',
+  fields: () => {
+    return {
+      addUser: {
+        type: User,
+        description: 'Creating a new user',
+        args: {
+          id: {
+            type: graphql.GraphQLInt,
+            description: 'The user id',
+          },
+          firstname: {
+            type: graphql.GraphQLString,
+            description: 'The firstname of the user',
+          },
+          lastname: {
+            type: graphql.GraphQLString,
+            description: 'The lastname of the user',
+          },
+          email: {
+            type: graphql.GraphQLString,
+            description: 'The email of the user',
+          },
+          age: {
+            type: graphql.GraphQLInt,
+            description: 'The age of the user',
+          },
+        },
+        resolve(root, args) {
+          return resolvers.saveUserInfo(args);
+        },
+      },
+    };
+  },
+});
+
 module.exports = new graphql.GraphQLSchema({
   query: Query,
+  mutation: Mutation,
 });
