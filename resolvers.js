@@ -119,9 +119,9 @@ function saveUserInfo(data) {
  * mutation {
 	addUser(
     id: 1
-    firstname: "Varun"
-    lastname: "SK"
-    email: "sk@sk.com"
+    firstname: "Random"
+    lastname: "random"
+    email: "random@random.com"
     age: 10
 	) {
 	  id
