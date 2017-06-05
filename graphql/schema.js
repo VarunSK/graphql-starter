@@ -1,9 +1,9 @@
 const graphql = require('graphql');
-const User = require('./User');
+const User = require('./Users');
 const Post = require('./Posts');
-const userdata = require('./userdata')['userDetails']['data'];
-const postdata = require('./postdata')['postDetails']['data'];
-const resolvers = require('./resolvers');
+const userdata = require('../data/userdata')['userDetails']['data'];
+const postdata = require('../data/postdata')['postDetails']['data'];
+const resolvers = require('../models');
 
 const Query = new graphql.GraphQLObjectType({
   name: 'Query',

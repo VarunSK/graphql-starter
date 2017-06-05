@@ -1,5 +1,5 @@
 const graphql = require('graphql');
-const userDetails = require('./userdata')['userDetails']['data'];
+const userDetails = require('../data/userdata')['userDetails']['data'];
 
 const posts = new graphql.GraphQLObjectType({
   name: 'Posts',
@@ -48,4 +48,4 @@ const posts = new graphql.GraphQLObjectType({
 // Here require statement is added at the end just to avoid cyclic dependencies
 // http://stackoverflow.com/a/14098262/5538893
 module.exports = posts;
-const User = require('./User');
+const User = require('./Users');
